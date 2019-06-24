@@ -1,26 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './assets/css/index.css';
+import { BrowserRouter as Router, Route} from 'react-router-dom'
+import PageRouting from './PageRouting';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <Router>
+        <Route path='/pocetna' component={PageRouting}/>
+        <Route path='/listaKorisnika' component={PageRouting}/>
+        <Route path='/istorijaKoriska' component={PageRouting}/>
+        <Route path='/izmjeniKorisnika' component={PageRouting}/>
+        <Route path='/dodajKorisnika' component={PageRouting}/>
+        <Route path='/listaZaduzenja' component={PageRouting}/>
+        <Route path='/istorijaZaduzenja' component={PageRouting}/>
+        <Route path='/detaljiZaduzenja' component ={PageRouting}/>
+        <Route path='/izmjeniZaduzenje' component={PageRouting}/>
+        <Route path='/uplataZaduzenja' component={PageRouting}/>
+        <Route path='/dodajZaduzenje' component={PageRouting}/>
+      </Router>
+    )
+  }
 }
 
 export default App;
