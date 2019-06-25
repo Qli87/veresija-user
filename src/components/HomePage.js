@@ -167,7 +167,7 @@ class HomePage extends React.Component {
                             </div>
                             <div className="card-body table-responsive">
                                 <table className="table table-hover">
-                                    <thead className="text-warning">
+                                    <thead className="text-warning" style={{'textAlign':'center'}}>
                                         <tr>
                                             <th><Translate id="idTbl"></Translate></th>
                                             <th><Translate id="nameTbl"></Translate></th>
