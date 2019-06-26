@@ -1,9 +1,24 @@
 import { call, put, takeEvery } from 'redux-saga/effects'
-import { getUsers_api, getTranslations_api, getUsersForHP_api, getUserHistory_api, editUser_api, addUser_api, getUsersForSelect_api } from '../api/user.api'
+import { getUsers_api, getTranslations_api, getUsersForHP_api, getUserHistory_api, editUser_api, addUser_api, getUsersForSelect_api, login_api } from '../api/user.api'
 import { getUsers_failure, getUsers_success, getTranslations_failure, getTranslations_success, getUsersForHP_failure, getUsersForHP_success, 
     getUserHistory_success, getUserHistory_request, editUser_request, editUser_success, editUser_failure, getUserDetails_failure, 
-    getUserDetails_success, addUser_failure, addUser_success, getUsersSelect_success, getUsersSelect_failure } from '../actions/user.actions'
+    getUserDetails_success, addUser_failure, addUser_success, getUsersSelect_success, getUsersSelect_failure, login_failure, login_success } from '../actions/user.actions'
 import { userConstants } from '../constants/user.constants'
+
+export function* login(user) {
+    console.log('saga user: ', user);
+    
+    const response = yield call(login_api(user));
+    if(!response || !response.data) {
+        return yield put(login_failure('Internal server error for login'))
+    }
+    if(response.status === 200) {
+        // add important details for user in local storage!!!
+        return yield put(login_success(response.data));
+    } else {
+        return yield put(login_failure('Error for login user'))
+    }
+}
 
 export function* getUsers() {
     const response = yield call(getUsers_api);
@@ -119,4 +134,5 @@ export function* userSaga() {
     // same thing like editUser, when make a real api request it will work, for now works only locally
     yield takeEvery(userConstants.ADDUSER_REQUEST, addUser)
     yield takeEvery(userConstants.GETUSERSSELECT_REQUEST, getUsersSelect)
+    yield takeEvery(userConstants.LOGIN_REQUEST, login)
 }

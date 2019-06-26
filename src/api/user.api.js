@@ -47,3 +47,9 @@ export function addUser_api(user) {
 export function getUsersForSelect_api() {
     return axios.get("http://www.mocky.io/v2/5c1b52a733000068007fd6ce");
 }
+
+export function login_api(user) {
+    return axios.post('', {
+        //...
+    })
+}

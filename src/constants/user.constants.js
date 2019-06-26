@@ -25,7 +25,10 @@ export const userConstants = {
     ADDUSER_FAILURE: "ADD_USER_FAILURE",
     GETUSERSSELECT_REQUEST: "GET_USER_SELECT_REQUEST",
     GETUSERSSELECT_SUCCESS: "GET_USERS_SELECT_SUCCESS",
-    GETUSERSSELECT_FAILURE: "GET_USERS_SELECT_FAILURE"
+    GETUSERSSELECT_FAILURE: "GET_USERS_SELECT_FAILURE",
+    LOGIN_REQUEST: "LOGIN_REQUEST",
+    LOGIN_SUCCESS: "LOGIN_SUCCESS",
+    LOGIN_FAILURE: "LOGIN_FAILURE"
 }
 
 export const userPath = {
@@ -33,5 +36,6 @@ export const userPath = {
     userList: '/listaKorisnika',
     userHistory: '/istorijaKoriska',
     userEdit: '/izmjeniKorisnika',
-    userAdd: '/dodajKorisnika'
+    userAdd: '/dodajKorisnika',
+    login: '/prijavaKorisnika'
 }

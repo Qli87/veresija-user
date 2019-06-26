@@ -1,5 +1,26 @@
 import { userConstants } from '../constants/user.constants'
 
+export function login_request(user) {
+    return {
+        type: userConstants.LOGIN_REQUEST,
+        payload: user
+    }
+}
+
+export function login_success(user) {
+    return {
+        type: userConstants.LOGIN_SUCCESS,
+        payload: user
+    }
+}
+
+export function login_failure(user) {
+    return {
+        type: userConstants.LOGIN_FAILURE,
+        payload: user
+    }
+}
+
 export function getUsers_request(user) {
     return {
         type: userConstants.GETUSERS_REQUEST,

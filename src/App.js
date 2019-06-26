@@ -2,22 +2,25 @@ import React from 'react';
 import './assets/css/index.css';
 import { BrowserRouter as Router, Route} from 'react-router-dom'
 import PageRouting from './PageRouting';
+import PrivateRoute from './components/PrivateRoute';
+import LoginCnt from './containers/auth/LoginCnt';
 
 class App extends React.Component {
   render() {
     return (
       <Router>
-        <Route path='/pocetna' component={PageRouting}/>
-        <Route path='/listaKorisnika' component={PageRouting}/>
-        <Route path='/istorijaKoriska' component={PageRouting}/>
-        <Route path='/izmjeniKorisnika' component={PageRouting}/>
-        <Route path='/dodajKorisnika' component={PageRouting}/>
-        <Route path='/listaZaduzenja' component={PageRouting}/>
-        <Route path='/istorijaZaduzenja' component={PageRouting}/>
-        <Route path='/detaljiZaduzenja' component ={PageRouting}/>
-        <Route path='/izmjeniZaduzenje' component={PageRouting}/>
-        <Route path='/uplataZaduzenja' component={PageRouting}/>
-        <Route path='/dodajZaduzenje' component={PageRouting}/>
+        <Route path='/prijavaKorisnika' component={LoginCnt} />
+        <PrivateRoute path='/pocetna' component={PageRouting}/>
+        <PrivateRoute path='/listaKorisnika' component={PageRouting}/>
+        <PrivateRoute path='/istorijaKoriska' component={PageRouting}/>
+        <PrivateRoute path='/izmjeniKorisnika' component={PageRouting}/>
+        <PrivateRoute path='/dodajKorisnika' component={PageRouting}/>
+        <PrivateRoute path='/listaZaduzenja' component={PageRouting}/>
+        <PrivateRoute path='/istorijaZaduzenja' component={PageRouting}/>
+        <PrivateRoute path='/detaljiZaduzenja' component ={PageRouting}/>
+        <PrivateRoute path='/izmjeniZaduzenje' component={PageRouting}/>
+        <PrivateRoute path='/uplataZaduzenja' component={PageRouting}/>
+        <PrivateRoute path='/dodajZaduzenje' component={PageRouting}/>
       </Router>
     )
   }

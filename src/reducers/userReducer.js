@@ -1,5 +1,4 @@
 import { userConstants } from '../constants/user.constants'
-import { CONNREFUSED } from 'dns';
 
 const initialState = {
     users: [],
@@ -11,6 +10,23 @@ const initialState = {
 
 export default function userReducer(state = initialState, action) {
     switch(action.type) {
+        case userConstants.LOGIN_REQUEST:
+            return {
+                ...state,
+                loading: true
+            }
+        case userConstants.LOGIN_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                user: action.payload
+            }
+        case userConstants.LOGIN_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
+            }
         case userConstants.GETUSERS_REQUEST:
             return {
                 ...state,

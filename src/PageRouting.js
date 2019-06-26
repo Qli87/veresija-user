@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import { userPath } from './constants/user.constants'
+import { userPath, userConstants } from './constants/user.constants'
 import SidebarCnt from './containers/SidebarCnt';
 import HomePageCnt from './containers/user/HomePageCnt';
 import UserListCtn from './containers/user/UserListCnt';
@@ -14,6 +14,7 @@ import AccountDetailsCnt from './containers/account/AccountDetailsCnt';
 import AccountEditCnt from './containers/account/AccountEditCnt';
 import AccountPaymentCnt from './containers/account/AccountPaymentCnt';
 import AccountAddCnt from './containers/account/AccountAddCnt';
+import LoginCnt from './containers/auth/LoginCnt';
 
 const routes = [
     {
@@ -60,6 +61,10 @@ const routes = [
     {
         path: accountPath.addAccount,
         main: () => <div> <AccountAddCnt /> </div>
+    },
+    {
+        path: userPath.login,
+        main: () => <div> <LoginCnt /> </div>
     }
 ]
 
