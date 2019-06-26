@@ -29,7 +29,7 @@ class User extends React.Component {
                 <tr>
                     <td>#{this.props.id}</td>
                     <td>{this.props.name}</td>
-                    <td>{this.props.description}</td>
+                    <td>{this.props.description.slice(0,20)}</td>
                     <td>{this.props.phone.slice(0,9)}</td>
                     <td>{this.props.email}</td>
                     <td>{this.props.status}</td>
